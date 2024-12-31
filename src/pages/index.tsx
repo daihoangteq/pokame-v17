@@ -1,16 +1,24 @@
-import CountdownTimer from "@src/components/molecules/CountdownTimer";
-import ScoreBoard from "@src/components/molecules/ScoreBoard";
-import WordBoard from "@src/components/molecules/WordBoard";
-import { CarouselPokeCard } from "@src/components/organisms/CarouselPokeCard";
-import KeyBoard from "@src/components/organisms/KeyBoard";
-import Base from "@src/components/templates/Base";
-import React from "react";
+import { type FC, useReducer } from "react";
 
-const Main: React.FC = () => {
+import { Header } from "@src/components/atom/Header";
+import { SubHeader } from "@src/components/atom/SubHeader";
+// import CountdownTimer from "@src/components/molecule/CountdownTimer";
+import ScoreBoard from "@src/components/molecule/ScoreBoard";
+import { CarouselPokeCard } from "@src/components/organism/CarouselPokeCard";
+import FormPoke from "@src/components/organism/FormPoke";
+import { useGetApi } from "@src/hooks/useGetPoke";
+import { initialPokeState, PokeContext } from "@src/stores/pokeProvider";
+import { pokeReducer } from "@src/stores/pokeReduce";
+
+const Page: FC = () => {
+  useGetApi();
+
   return (
-    <Base>
+    <>
+      <Header />
+      <SubHeader />
       <ScoreBoard />
-      <CountdownTimer />
+      {/* <CountdownTimer /> */}
       <br />
       <br />
       <br />
@@ -19,10 +27,19 @@ const Main: React.FC = () => {
       <br />
       <br />
 
-      <WordBoard />
-      <KeyBoard />
-    </Base>
+      <FormPoke />
+    </>
   );
 };
 
-export default Main;
+const HomePage: FC = () => {
+  const [state, dispatch] = useReducer(pokeReducer, initialPokeState);
+  return (
+    // Need .Provider
+    <PokeContext.Provider value={{ state, dispatch }}>
+      <Page />
+    </PokeContext.Provider>
+  );
+};
+
+export default HomePage;

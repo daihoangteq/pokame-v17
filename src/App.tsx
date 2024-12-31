@@ -1,12 +1,15 @@
-import "./App.css";
-import Main from "./pages";
+import HomePage from "@src/pages";
 
-function App() {
+import { Container } from "./components/atom/Container";
+
+import "./index.css";
+
+const App = () => {
   return (
-    <>
-      <Main />
-    </>
+    <Container>
+      <HomePage />
+    </Container>
   );
-}
+};
 
 export default App;
