@@ -8,6 +8,7 @@ import WordBoard from "../molecule/WordBoard";
 import KeyBoard from "./KeyBoard";
 import { PokeAction } from "@src/stores/pokeReduce";
 import { PokeContext } from "@src/stores/pokeProvider";
+import { PendingPoke } from "@src/components/molecule/PendingPoke";
 type PokeActionType = PokeAction["type"];
 const FormPoke = () => {
   const { state: pokeState } = useContext(PokeContext);
@@ -48,6 +49,7 @@ const FormPoke = () => {
       </p>
       <WordBoard />
       <KeyBoard />
+      <PendingPoke />
     </form>
   );
 };
