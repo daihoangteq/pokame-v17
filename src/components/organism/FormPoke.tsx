@@ -16,9 +16,9 @@ const FormPoke = () => {
     useState<Extract<PokeActionType, "SUCCESS" | "FAIL">>();
   const dispatch = useDispatch();
   const onSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     if(!formRefElm.current) return
     dispatch({type:"PENDING", payload:true})
-    event.preventDefault();
     const formData = new FormData(formRefElm.current);
     console.log(formData);
     const eventForm = await actionFormPoke().actionName("", formData);

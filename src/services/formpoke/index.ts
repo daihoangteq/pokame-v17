@@ -1,25 +1,32 @@
 import { getApi } from "@src/utils/api";
 
 export const actionFormPoke = () => {
-  const inputName = "pokeName";
+  const inputName = "inputValue";
+  const pokeName = "pokeName"
   const actionName = async (
     _: string,
     formData: FormData
   ): Promise<"SUCCESS" | "FAIL"> => {
-    const itemName = (formData.get(inputName) as string) || "";
+    const inputValue = (formData.get(inputName) as string) || "";
+    const pokeNameValue = (formData.get(pokeName) as string) || "";
+
     try {
-      const response = await getApi(`/${itemName}`);
-      if (response) {
-        return "SUCCESS";
+      const response = await getApi(`/${pokeNameValue}`);
+      if (!response || !response.types) {
+        return "FAIL";
       }
+      const isMatchType = !!response.types.find(
+        (item: { type: { name: string } }) => item?.type?.name === inputValue
+      );
+      return isMatchType ? "SUCCESS" : "FAIL";
     } catch (e) {
       console.log(e);
       return "FAIL";
     }
-    return "FAIL";
   };
   return {
     inputName,
+    pokeName,
     actionName,
   };
 };
