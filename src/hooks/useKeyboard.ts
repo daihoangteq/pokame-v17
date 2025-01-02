@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { KEYBOARD_ROWS } from "@src/constants/KEYBOARD";
 
@@ -16,9 +16,14 @@ export const useHandleRealKeyboard = ({
   isDisable: boolean;
 }) => {
   const dispatch = useDispatch();
+  const [isSubmit, setSubmit] = useState<boolean>(false);
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (!event?.key || isDisable) return;
+    if (event.key === "Enter") {
+      setSubmit(true);
+      return;
+    }
     if (event.key === "Backspace") {
       dispatch({
         type: "BACKSPACE",
@@ -44,6 +49,12 @@ export const useHandleRealKeyboard = ({
   };
 
   useEffect(() => {
+    if (isDisable) {
+      setSubmit(false);
+    }
+  }, [isDisable]);
+
+  useEffect(() => {
     window.addEventListener("keyup", handleKeyUp);
     window.addEventListener("keydown", handleKeyDown);
 
@@ -53,5 +64,7 @@ export const useHandleRealKeyboard = ({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return {};
+  return {
+    isSubmit,
+  };
 };

@@ -2,14 +2,16 @@ import { type FC, useReducer } from "react";
 
 import { Header } from "@src/components/atom/Header";
 import { SubHeader } from "@src/components/atom/SubHeader";
-// import CountdownTimer from "@src/components/molecule/CountdownTimer";
+import IndexCounter from "@src/components/molecule/IndexCounter";
 import ScoreBoard from "@src/components/molecule/ScoreBoard";
-import { CarouselPokeCard } from "@src/components/organism/CarouselPokeCard";
 import FormPoke from "@src/components/organism/FormPoke";
 import { useGetApi } from "@src/hooks/useGetPoke";
 import { initialPokeState, PokeContext } from "@src/stores/pokeProvider";
 import { pokeReducer } from "@src/stores/pokeReduce";
-
+import CarouselType from "@src/components/organism/CarouselType";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { CarouselPokeCard } from "@src/components/organism/CarouselPokeCard";
 const Page: FC = () => {
   useGetApi();
 
@@ -18,14 +20,11 @@ const Page: FC = () => {
       <Header />
       <SubHeader />
       <ScoreBoard />
-      {/* <CountdownTimer /> */}
-      <br />
-      <br />
+      <IndexCounter />
+      <CarouselType />
       <br />
 
       <CarouselPokeCard />
-      <br />
-      <br />
 
       <FormPoke />
     </>

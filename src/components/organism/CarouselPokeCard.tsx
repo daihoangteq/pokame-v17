@@ -7,8 +7,6 @@ import { usePokeSelector } from "@src/hooks/core";
 import { SETTING } from "@src/lib/react-slick/setting";
 // import { useInsertCSS } from "@src/lib/slick-carousel/useInsertCSS";
 import { getUrlImg } from "@src/utils";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useSlidingIndex } from "@src/hooks/useSlidingIndex";
 export const CarouselPokeCard = () => {
   // ( ˘▽˘)っ♨
