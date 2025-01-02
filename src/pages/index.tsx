@@ -2,7 +2,7 @@ import { type FC, useReducer } from "react";
 
 import { Header } from "@src/components/atom/Header";
 import { SubHeader } from "@src/components/atom/SubHeader";
-// import CountdownTimer from "@src/components/molecule/CountdownTimer";
+import IndexCounter from "@src/components/molecule/IndexCounter";
 import ScoreBoard from "@src/components/molecule/ScoreBoard";
 import FormPoke from "@src/components/organism/FormPoke";
 import { useGetApi } from "@src/hooks/useGetPoke";
@@ -20,7 +20,7 @@ const Page: FC = () => {
       <Header />
       <SubHeader />
       <ScoreBoard />
-      {/* <CountdownTimer /> */}
+      <IndexCounter />
       <CarouselType />
       <br />
 
