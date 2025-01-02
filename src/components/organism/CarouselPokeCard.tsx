@@ -9,6 +9,7 @@ import { SETTING } from "@src/lib/react-slick/setting";
 import { getUrlImg } from "@src/utils";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSlidingIndex } from "@src/hooks/useSlidingIndex";
 export const CarouselPokeCard = () => {
   // ( ˘▽˘)っ♨
   // useInsertCSS();
@@ -20,6 +21,8 @@ export const CarouselPokeCard = () => {
   const ref = useRef(null);
   const pokes = usePokeSelector("pokes");
   const activeIndex = usePokeSelector("activeIndex");
+
+  const { setSliding } = useSlidingIndex();
   useEffect(() => {
     if (activeIndex % 3 === 0) {
       // @ts-expect-error test
@@ -30,9 +33,12 @@ export const CarouselPokeCard = () => {
   if (!pokes || pokes.length === 0) {
     return <div>loading</div>;
   }
+    const handleSlideChange = (index: number) => {
+      setSliding(index);
+    };
   return (
     <section className="">
-      <Slider {...SETTING} ref={ref}>
+      <Slider {...SETTING} ref={ref} afterChange={handleSlideChange}>
         {pokes.map((record, idx) => (
           <PokeCard
             key={idx}
