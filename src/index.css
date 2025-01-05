@@ -83,3 +83,129 @@ html body {
     transform: scale3d(1, 1, 1);
   }
 }
+
+/* WordCloud3D.css */
+.word-cloud-container-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.word-item-3d {
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  background: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  transform: scale(0);
+  animation-duration: 0.5s;
+  animation-fill-mode: backwards;
+}
+/* Different float animations */
+.float-0 {
+  animation-name: floatCenter0;
+}
+
+.float-1 {
+  animation-name: floatCenter1;
+}
+
+.float-2 {
+  animation-name: floatCenter2;
+}
+
+.float-3 {
+  animation-name: floatCenter3;
+}
+
+@keyframes floatCenter0 {
+  0% {
+    opacity: 0;
+    transform: translate(100vw, 100vh) scale(0) rotate(180deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+}
+
+@keyframes floatCenter1 {
+  0% {
+    opacity: 0;
+    transform: translate(-100vw, -100vh) scale(0) rotate(-180deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+}
+
+@keyframes floatCenter2 {
+  0% {
+    opacity: 0;
+    transform: translate(100vw, -100vh) scale(0) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+}
+
+@keyframes floatCenter3 {
+  0% {
+    opacity: 0;
+    transform: translate(-100vw, 100vh) scale(0) rotate(-90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+}
+
+/* Optional: Add glow effect */
+.word-item {
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7)
+}

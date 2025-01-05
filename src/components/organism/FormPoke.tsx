@@ -3,12 +3,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch } from "@src/hooks/core";
 import { actionFormPoke } from "@src/services/formpoke";
 
-import WordBoard from "../molecule/WordBoard";
-
-import KeyBoard from "./KeyBoard";
+import WordBoard from "@src/components/molecule/WordBoard";
+import KeyBoard from "@src/components/molecule/KeyBoard";
 import { PokeAction } from "@src/stores/pokeReduce";
 import { PokeContext } from "@src/stores/pokeProvider";
 import { PendingPoke } from "@src/components/molecule/PendingPoke";
+import VirtualForm from "../molecule/VirtualForm";
 type PokeActionType = PokeAction["type"];
 const FormPoke = () => {
   const { state: pokeState } = useContext(PokeContext);
@@ -16,6 +16,8 @@ const FormPoke = () => {
   const [state, setState] =
     useState<Extract<PokeActionType, "SUCCESS" | "FAIL">>();
   const dispatch = useDispatch();
+   const ref = useRef(null);
+
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!formRefElm.current) return;
@@ -50,6 +52,7 @@ const FormPoke = () => {
       <WordBoard />
       <KeyBoard />
       <PendingPoke />
+      <VirtualForm ref={ref} />
     </form>
   );
 };
