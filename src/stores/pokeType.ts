@@ -5,9 +5,9 @@ export interface PokeState {
   inputValue: string;
   activeIndex: number;
   point: number;
-  defaultName: string;
   keyPressing: string;
   pokes: PokeCard[];
+  activeName: string;
 }
 
 export interface PokeContextType {
