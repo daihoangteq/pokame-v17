@@ -5,7 +5,7 @@ interface Props {
 }
 export const Container: FC<Props> = ({ children }) => {
   return (
-    <div className="container min-h-full h-dvh m-auto p-8 overflow-auto relative">
+    <div className="container min-h-full h-dvh m-auto px-8  overflow-hidden relative">
       {children}
     </div>
   );

@@ -29,7 +29,7 @@ export const Key = ({ keyName }: Props) => {
   };
   return (
     <li
-      className={`${KEY_STYLE} ${keyName === keyPressing ? "border-b-[2px]" : ""}`}
+      className={`${KEY_STYLE} ${keyName === keyPressing ? "border-b-[2px]" : ""} bg-white`}
       onMouseDown={handleMoveDown}
       onMouseUp={handleMoveUp}
     >

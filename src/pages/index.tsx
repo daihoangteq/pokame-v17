@@ -12,22 +12,25 @@ import CarouselType from "@src/components/organism/CarouselType";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CarouselPokeCard } from "@src/components/organism/CarouselPokeCard";
+import { OptionLevel } from "@src/components/molecule/OptionLevel";
 const Page: FC = () => {
   useGetApi();
 
   return (
-    <>
+    <div >
       <Header />
       <SubHeader />
+      <CarouselType />
+      <div className="w-[calc(100%_-_10px)] h-[calc(100%_-_10px)] home mx-auto">
       <ScoreBoard />
       <IndexCounter />
-      <CarouselType />
       <br />
-
       <CarouselPokeCard />
-
+      <OptionLevel />
       <FormPoke />
-    </>
+      </div>
+
+    </div>
   );
 };
 

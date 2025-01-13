@@ -23,7 +23,6 @@ const FormPoke = () => {
     if (!formRefElm.current) return;
     dispatch({ type: "PENDING", payload: true });
     const formData = new FormData(formRefElm.current);
-    console.log(formData);
     const eventForm = await actionFormPoke().actionName("", formData);
     setState(eventForm);
     dispatch({ type: "PENDING", payload: false });
@@ -47,7 +46,9 @@ const FormPoke = () => {
         className="font-bold text-lg"
         style={{ color: state === "FAIL" ? "red" : "green" }}
       >
+        <div className="px-2 bg-white rounded-sm mb-2">
         {state}
+        </div>
       </p>
       <WordBoard />
       <KeyBoard />

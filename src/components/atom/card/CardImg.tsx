@@ -11,7 +11,7 @@ export const CardImg: FC<Props> = ({ imgUrl, name }) => {
         src={imgUrl}
         width="100"
         height="100"
-        className="object-contain"
+        className="object-contain max-w-28 max-h-28"
         alt={name || "card img"}
       />
       <div className="absolute right-0 bottom-[-50px] w-[100px] h-[150px] opacity-40 origin-[50%_50%] transition-all duration-[0.5s] ease-[ease-in-out] group-hover:bg-[linear-gradient(_rgba(0,0,0,0),rgba(255,255,255),rgba(0,0,0,0)_)]" />

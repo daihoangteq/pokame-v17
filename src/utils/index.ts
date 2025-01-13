@@ -1,6 +1,8 @@
-import { IMG_TYPE, IMG_URL } from "@src/constants/BASE";
+import { IMG_TYPE, IMG_URL, NAME_POKE_SKELETON } from "@src/constants/BASE";
 
 export const getUrlImg = (name: string) => {
+  console.log(name);
+  if (name === NAME_POKE_SKELETON) return `/${name}.gif`;
   return `${IMG_URL}/${name}.${IMG_TYPE}`;
 };
 

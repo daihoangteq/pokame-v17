@@ -35,7 +35,7 @@ export const CarouselPokeCard = () => {
       setSliding(index);
     };
   return (
-    <section className="">
+    <section className="mt-2">
       <Slider {...SETTING} ref={ref} afterChange={handleSlideChange}>
         {pokes.map((record, idx) => (
           <PokeCard
