@@ -26,7 +26,7 @@ export const BackSpace = () => {
   };
   return (
     <li
-      className={`${KEY_STYLE} ${keyPressing === KEY_NAME && "border-b-[2px]"}`}
+      className={`${KEY_STYLE} ${keyPressing === KEY_NAME && "border-b-[2px]"} bg-white`}
       onMouseDown={handleMoveDown}
       onMouseUp={handleMoveUp}
     >

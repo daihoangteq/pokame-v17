@@ -1,4 +1,3 @@
-import { useContext, useEffect, useRef } from "react";
 
 import CharacterInput from "@src/components/atom/character-input";
 import { usePokeSelector } from "@src/hooks/core";

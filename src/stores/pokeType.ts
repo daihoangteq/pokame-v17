@@ -1,5 +1,8 @@
 import type { PokeAction } from "./pokeReduce";
-
+export interface IOption {
+  limit: number;
+  offset: number;
+}
 export interface PokeState {
   pending: boolean;
   inputValue: string;
@@ -8,6 +11,7 @@ export interface PokeState {
   keyPressing: string;
   pokes: PokeCard[];
   activeName: string;
+  option: IOption;
 }
 
 export interface PokeContextType {
