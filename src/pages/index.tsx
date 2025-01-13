@@ -26,9 +26,9 @@ const Page: FC = () => {
       <IndexCounter />
       <br />
       <CarouselPokeCard />
-      <OptionLevel />
       <FormPoke />
       </div>
+      <OptionLevel />
 
     </div>
   );

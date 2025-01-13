@@ -82,7 +82,7 @@ html body {
   padding: 8px;
   border-radius: 4px;
   font-weight: 700;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Jersey 10", Haettenschweiler, "Arial Narrow Bold", sans-serif;
   background: rgba(0, 0, 0, 0.6);
   white-space: nowrap;
   transition: all 0.3s ease-out;
