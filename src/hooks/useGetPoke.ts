@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 
-import { INIT_DATA, LIMIT, OFFSET } from "@src/constants/BASE";
+import { INIT_DATA } from "@src/constants/BASE";
 import { getApi } from "@src/utils/api";
 
 import { useDispatch } from "./core";

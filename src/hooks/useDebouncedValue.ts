@@ -6,7 +6,7 @@ export const useDebounceValue = <T>(
   delay: number = 200
 ): T => {
   const [debouncedValue, setDebouncedValue] = useState<T>(initialValue);
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef<number | NodeJS.Timeout>();
 
   useEffect(() => {
 
